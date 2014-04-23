@@ -1,0 +1,55 @@
+MAZE OF GALIOUS REMAKE v0.61
+Santi Ontañón Villar (2002)
+
+STEUERUNGSTASTEN:
+
+Q - Oben/Sprung
+A - Unten
+O - Links
+P - Rechts
+SPACE - Schwertattacke
+M - Sekundärwaffe (z.B. Pfeile)
+F1 - Charakter Menü
+F2 - Pause
+
+ESC - Zurück zum Titel Menü (NICHT ÄNDERBAR)
+F10 - Grafik set wechseln (NICHT ÄNDERBAR)
+F11 - Sound set wechseln (NICHT ÄNDERBAR)
+F12 - Beendet das Spiel (NICHT ÄNDERBAR)
+PGUP/PGDOWN - Zoom (NICHT ÄNDERBAR)
+L - Taste für das Passwortmenü, im Titelmenü drücken (NICHT ÄNDERBAR)
+ALT + ENTER - Wechselt zwischen Vollbild/Fenster-Modus
+
+
+Notiz:
+
+Dieses Spiel wurde nur unter Windows 98/ME getestet, wenn es Probleme mit 
+Windows 2000/XP gibt, dann lasst es mich bitte wissen.
+
+santi.ontanon@terra.es
+
+Ich werde mich um das Problem kümmern.
+
+
+Anmerkung:
+
+Danke an (chronologisch Ordnung der Mitarbeiter):
+- KOIOTE aus Spanien, für SFX Proben und Beta-testing.
+- BOLTIAN aus Spanien, für ein excellentes Grafik Set.
+- JASON EAMES aus Spanien, für Webhosting, Werbung und Beta-testing.
+- CHRISTIAN JAVIER D'ORAZIO aus Argentinien, für seine Hilfe mit der Passwortentschlüsselung.
+- JOOST YERVANTE aus Holland, für seine Hilfe mit SDL and den LINUX port.
+- HINOX aus Spanien, für ein grossartiges Grafik Set und seine Motivation.
+- HENK BOSMAN aus Holland, für Beta-testing.
+- LARS THE 18TH aus Holland, für seinen Fehler-Report in der Passwortentschlüsselungssektion
+  und seinen excellenten Passwort-Generator.
+- WISAM AL-RAWI aus Iraq, für Beta-testing und den Orginal SFX
+- MAX ATTAR FEINGOLD aus der USA, für Beta-testing and seiner Hilfe mit den Windows XP 
+  Kompatiblitätsprobleme.
+- SERGI GARCÍA BESORA aus Catalonia (Spanien), für Beta-Testing.
+- JORRITH SCHAAP aus Holland, für seine excellenten Musikfiles.
+- BART ROYMANS aus Holland, für seine excellenten Musikfiles.
+- ZITA MIRANDA MARTINEZ aus Spanien, für Beta-testing.
+- MENNO HAECK aus Holland, für Beta-testing.
+- JANNE VIERI aus Finnland, für Beta-testing.
+- ROB POUWELSE aus Holland, für Beta-testing und einen neuen Soundtrack.

@@ -1,0 +1,63 @@
+MAZE OF GALIOUS REMAKE v0.62
+Santi Ontañón Villar (2002)
+
+TECLAS:
+
+Q - ARRIBA/SALTAR
+A - ABAJO
+O - IZQUIERDA
+P - DERECHA
+ESPACIO - ESPADA
+M - DISPARAR ARMA SECUNDARIA
+F1 - PANTALLA DE OBJETOS
+F2 - PAUSA
+
+ESC - Vuelve a la pantalla de presentación (NO REDEFINIBLE)
+F10 - Cambia de Graphic set (NO REDEFINIBLE)
+F11 - Cambia de Sound set (NO REDEFINIBLE)
+F12 - Sale del juego (NO REDEFINIBLE)
+PGUP/PGDOWN - Zoom (NO REDEFINIBLE)
+L - Pulsada en el menú de inicio, nos permite entrar una contraseña. (NO REDEFINIBLE)
+ALT + ENTER - Cambia de modo pantalla completa/ventana.
+
+
+Este juego solo ha sido testeado bajo Windows 98/ME y Mac OS X, si encontrais algún
+problema con Windows XP/2000 o LINUX por favor, hacedmelo saber en:
+
+santi.ontanon@terra.es
+
+Intentaré arreglarlo!
+
+Agradecimentos:
+
+Gracias a(En orden cronológico de colaboración):
+- KOIOTE de España, por los ficheros de efectos de sonido y por probar las versiones
+  del juego.
+- BOLTIAN de España, por su excelente "graphic set".
+- JASON EAMES de España, por el espacio en su servidor, por hacer publicidad de la
+  página y por su ayuda encontrando errores en el juego. 
+- CHRISTIAN JAVIER D'ORAZIO de Argentina por su ayuda en la decodificación 
+  de las contraseñas.
+- JOOST YERVANTE de Holanda por su ayuda con la libreria SDL y su colaboración con
+  la versión de LINUX.
+- HINOX de España, por su gran "graphic set" y su motivación!
+- HENK BOSMAN de Holanda, por beta testing.
+- LARS THE 18TH de Holanda, por haberse leido con paciencia la sección de PASSWORD DECODING,
+  e informarme de varios errores y por su excelente generador de PASSWORDS.
+- WISAM AL-RAWI de IRAK, por beta testing y por los SFX originales.
+- MAX ATTAR FEINGOLD de EEUU, por beta testing y por ayudarme a solucionar problemas de
+  compatibilidad con Windows XP.
+- SERGI GARCÍA BESORA de CATALUNYA (ESPAÑA), porbeta testing.
+- JORRITH SCHAAP de HOLANDA, por su excelente musica.
+- BART ROYMANS de HOLANDA, por su excelente musica.
+- ZITA MIRANDA MARTINEZ de ESPAÑA, por beta testing.
+- MENNO HAECK de HOLANDA, por beta testing.
+- JANNE VIERI de FINLANDIA, por beta testing.
+- ROB POUWELSE de HOLANDA, por beta testing y por su nueva banda sonora.
+- J-LUNARTIC de ALEMANIA, por su traducción de este fichero al alemán.
+- SHARD de???, por la versión BeOS.
+- WOLF de NETHERLAND, Por sus maravillosas músicas para MoG!
+- TEMPLAU de SPAIN, por la versión trance del tema de MoG!
+- CHRISTOPHE HUET de FRANCE, por su esfuerzo en crear su propia versión del remake del MoG!!!
+- RANDY WINTJES dem NETHERLAND, por los ficheros MIDI originales de donde la versión "alternate"
+  del sonido fué creada...

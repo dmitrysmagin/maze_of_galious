@@ -1,0 +1,165 @@
+Maze of Galious FAQ v0.2
+Santi Ontañón (BRAIN) 2002
+
+Download MOG at:
+http://www.braingames.getput.com
+
+Contact me at:
+santi@iiia.csic.es (Business)
+santi.ontanon@terra.es (Gaming, and unserious purposes)
+
+FAQ index:
+
+0.- I've downloaded MoG, but I cannot run it! What do I do?
+1a.- Is there any other game better than Maze of Galious?
+1b.- Is there any other Remake of Maze of Galious?
+1c.- When will be the remake finished?
+1d.- Will the remake have the XXX feature?
+1e.- Are you going to make a Maze of Galious 2?
+2a.- What to do to finish Maze of Galious?
+2b.- Well, I've to defeat Galious. But again:
+     WHAT TO DO TO FINISH MAZE OF GALIOUS?
+3.- Why some times when exitting the ITEMS screen, 
+    I appear in the room of DEMETER'S Shrine (F10)?
+4.- How can I make the first world demon appear?
+5.- You allways talk about SHRINES but... what in the hell is a shrine?
+5b.- Why I cannot enter certain shrines?
+6.- How can I use the special weapons?
+7.- There are rooms where some bubbles appear in the screen, what is their meaning?
+8.- Is there any way to save/restore the game?
+
+
+FAQ:
+
+0.- I've downloaded MoG, but I cannot run it! What do I do?
+
+Maybe you have not downloaded everything. To download MoG, follow these instructions:
+- Download the DATA FILES (those are needed for any system: Windows, Mac, Linux or BeOS)
+- Unzip the DATA FILES
+- Download the BINARY FILES (the specific ones for your system)
+- Unzip the BINARY FILES in the folder created after un zipping the DATA FILES
+- You fill find the executable inside the MoG folder. Just double-click it (or write it's name
+  in the command line) to play it.
+
+
+
+1a.- Is there any other game better than Maze of Galious?
+
+No, there isn't. So stop looking the web for other games and just play Maze of Galious.
+
+
+
+1b.- Is there any other Remake of Maze of Galious?
+
+Yes, there is a French one on the way, but at the moment of writing this lines, there is
+only a demo version. And I still haven't been able to download it!
+
+
+
+1c.- When will be the Remake finished?
+
+At this moment(version 0.51), all the worlds are implemented, but lots of graphic work,
+bugfixing and improvements need to be done, so not official date. 
+
+
+
+1d.- Will the remake have the XXX feature?
+
+If you want that MoG REMAKE have a feature XXX, just e-mail me. And if it's a good idea,
+it will be implemented!
+
+
+
+1e.- Are you going to make a Maze of Galious 2?
+
+Yes, after finishing MoG remake, I'll start the Maze of Galious 2 project. There is still
+no demo of it, but we have some ideas on the storyline. We are thinking in continuing the game
+just after MoG finishes, and ignoring the story of "Knightmare 3: SHALOM". But, I'll give you
+no more clues...
+
+
+
+2a.- What to do to finish Maze of Galious?
+
+The main goal of the game is to rescue PAMPERSE (the son of POPOLON and APHRODITE).
+PAMPERSE has been kidnaped by GALIOUS. And you have to find GALIOUS and defeat him.
+
+
+
+2b.- Well, I've to defeat Galious. But again:
+     WHAT TO DO TO FINISH MAZE OF GALIOUS?
+
+Maze of Galious is composed of 11 maps. The CASTLE and 10 WORLDS. You start at the CASTLE,
+and to enter the WORLDS, you need the GREAT KEYs. The first one is in the room G13 (just
+begin, go to the right room, and hit 3 times to the STONE).
+Once you have a GREAT KEY, you have to find the WORLD DOOR (the first WORLD DOOR is in
+room D13) and enter it.
+In each one of the WORLDS there is a DEMON. You must kill the 10 DEMONs of the WORLDS to
+finish the game. GALIOUS is the DEMON of the tenth WORLD.
+Each time you defeat a DEMON, you will find the GREAT KEY to the next WORLD.
+
+
+
+3.- Why some times when exitting the ITEMS screen, 
+    I appear in the room of DEMETER'S Shrine (F10)?
+
+When you have the Angel's Halo(found in room E13), and press ENTER in the ITEMS screen, you
+are teleported to the room F10. To avoid this effect, you must exit from the ITEMS screen
+pressing F1 again.
+
+
+
+4.- How can I make the first world demon appear?
+
+To make a world demon to appear, you must first know its name. To discover the name of a
+world demon, you need the MAGNIFING GLASS (found at the ARES shop in room I16). The you
+have to examine the TOMBSTONES of the world with the MAGNIFING GLASS. In one of them, you
+will discover the demon's name. Once you have the name. You have to go to the demon's
+room (the one that has a different music), and type the name of the demon.
+
+
+
+5.- You allways talk about SHRINES but... what in the hell is a shrine?
+
+In the game there are some doors, where you can enter by pressing the DOWN key. There are
+just two types of doors: WORLD doors (they are closed, and you need a key to open them),
+an SHRINE doors, they are allways open, and inside them, you can find SHOPS, HINTS, and
+other things of interest.
+
+
+
+5b.- Why I cannot enter certain shrines?
+
+You need the SALT to enter some shrines.
+
+
+
+6.- How can I use the special weapons?
+
+POPOLON and APHRODITE are equiped with a SWORD from the begining of the game. But they can
+collect new weapons (ARROWS, CERAMIC ARROWS, FIRE, ROLLING FIRE, MINES and the MAGNIFING
+GLASS). To use this weapons, you must have the weapon OBJECT, then go to the ITEMS screen
+and select it as your current weapon, and finally you must have some ARROWS (you can find
+ARROWS by breaking STONES or by killing enemies), you can see how many ARROWS do you have
+at the top of the screen (just above the COINS and KEYS).
+
+
+
+7.- There are rooms where some bubbles appear in the screen, what is their meaning?
+
+The bubbles mean that you are in a FAIRY's room. To make the fairy appear, you must keep
+you character stopped in a special point of the screen for about 3 seconds, then a FAIRY
+will appear and when you catch her, your lifemeter will be replenished.
+
+
+
+8.- Is there any way to save/restore the game?
+
+Yes, of course! Haven't you read the "PASSWOD DECODING SECTION" in my web page?!?!
+To save the game, you must go to DEMETER's shrine (room F10), and note down the password
+he gives to you (yes, yes, it's a 45 long password!).
+To restore the game, you have to press L in the tittle screen, and retype the password
+that you have previously noted down.
+To avoid having to note down the passwords by hand, you can save a password to the hard disk
+by pressing F5, F6, F7, F8 or F9 in DEMETER's room, and restore it by pressing the same keys in
+the "password entering screen".
