@@ -394,9 +394,11 @@ void GameCycle(BYTE *screen,int dx,int dy)
 			memset(screen,0,dx*dy);
 //				set_palete((BYTE *)tiles_bmp->get_palete());
 			menu_bmp->draw(0,0,mw,mh,screen,dx,dy,dx);
-			tile_print("PUSH SPACE KEY",TILE_SIZE_X*13,TILE_SIZE_Y*19,screen,dx,dy);
 
-#ifndef RENDER_320x240
+#ifdef RENDER_320x240
+			tile_print("PUSH START KEY",TILE_SIZE_X*13,TILE_SIZE_Y*19,screen,dx,dy);
+#else
+			tile_print("PUSH SPACE KEY",TILE_SIZE_X*13,TILE_SIZE_Y*19,screen,dx,dy);
 			sprintf(tmp,"F10 OR 9 CHANGES GRAPHIC SET: %s",g_path+9);
 			tmp[strlen(tmp)-1]=0;
 			strupr(tmp);
@@ -408,7 +410,11 @@ void GameCycle(BYTE *screen,int dx,int dy)
 			tile_print("PRESS K TO REDEFINE THE KEYS",TILE_SIZE_X*6,TILE_SIZE_Y*23,screen,dx,dy);
 #endif
 
+#ifdef RENDER_320x240
+			if (keyboard[SDLK_RETURN] && !old_keyboard[SDLK_RETURN]) {
+#else
 			if (keyboard[SDLK_SPACE]  && !old_keyboard[SDLK_SPACE]) {
+#endif
 				developer_start_x=-1;
 				developer_start_y=-1;
 				developer_start_map=-1;
