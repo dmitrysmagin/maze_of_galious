@@ -27,8 +27,8 @@ OBJS = \
 	$(SRC)/shrines.o		$(SRC)/sound.o
 
 CC = g++
-CFLAGS = -g3 -O2 -Wno-write-strings `sdl-config --cflags`
-LDFLAGS = -s -lSDL_sound `sdl-config --libs` -lSDL_image -lSDL_mixer -lvorbisfile
+CFLAGS = -g3 -O2 -Wno-write-strings `sdl-config --cflags` -DRENDER_320x240
+LDFLAGS = -lSDL_sound `sdl-config --libs` -lSDL_image -lSDL_mixer -lvorbisfile
 RM = rm -f
 CP = cp -r
 MD = mkdir -p
@@ -43,7 +43,6 @@ all: $(EXE)
 
 $(EXE): $(OBJS)
 	$(CC) $^ $(LDFLAGS) -o $@
-	@$(STRIP) $@
 	@$(ECHO) " o If there are no errors, the game compiled succesfully"
 
 clean:
