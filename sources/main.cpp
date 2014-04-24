@@ -18,6 +18,7 @@
 
 #include "mog.h"
 #include "debug.h"
+#include "path.h"
 
 extern void DebugReport(void);
 
@@ -38,12 +39,9 @@ int frames_per_sec_tmp = 0;
 int init_time = 0;
 
 // Paths
-#ifdef RENDER_320x240
-char *default_g_path = "graphics/original_320x240/";
-#else
-char *default_g_path = "graphics/original/";
-#endif
-char *default_s_path = "sound/original/";
+
+char *default_g_path = GRAPHICS_ORIGINAL;
+char *default_s_path = SOUND_ORIGINAL;
 char **g_paths = 0;
 int n_g_paths = 0, act_g_path = 0;
 char *g_path = 0;

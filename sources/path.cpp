@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "path.h"
+
 #define NAME_MAX	256
 
 /* Paths: */ 
@@ -34,7 +36,7 @@ void init_paths(void)
 		char **tmp_g_paths; 
 
 		n_g_paths=0;
-		h=FindFirstFile("graphics\\*.*",&finfo);
+		h=FindFirstFile(GRAPHICS "\\*.*",&finfo);
 		if (h!=INVALID_HANDLE_VALUE) {
 			if (strcmp(finfo.cFileName,".")!=0 &&
 				strcmp(finfo.cFileName,"..")!=0) {
@@ -42,7 +44,7 @@ void init_paths(void)
 				n_g_paths=1;
 				g_paths=new char *[1];
 				g_paths[i]=new char[NAME_MAX];
-				sprintf(g_paths[i++],"graphics\\%s\\",strupr(finfo.cFileName));
+				sprintf(g_paths[i++],GRAPHICS "\\%s\\",strupr(finfo.cFileName));
 			} /* if */ 
 
 			while(FindNextFile(h,&finfo)==TRUE) {
@@ -54,7 +56,7 @@ void init_paths(void)
 						n_g_paths=1;
 						g_paths=new char *[1];
 						g_paths[i]=new char[NAME_MAX];
-						sprintf(g_paths[i++],"graphics\\%s\\",strupr(finfo.cFileName));
+						sprintf(g_paths[i++],GRAPHICS "\\%s\\",strupr(finfo.cFileName));
 					} else {
 						tmp_g_paths=g_paths;
 						n_g_paths++;
@@ -64,7 +66,7 @@ void init_paths(void)
 						} /* for */ 
 						delete tmp_g_paths;
 						g_paths[i]=new char[NAME_MAX];
-						sprintf(g_paths[i++],"graphics\\%s\\",strupr(finfo.cFileName));
+						sprintf(g_paths[i++],GRAPHICS "\\%s\\",strupr(finfo.cFileName));
 					} /* if */ 
 				} /* if */ 
 			} /* while */ 
@@ -72,8 +74,8 @@ void init_paths(void)
 			g_paths=new char *[2];
 			g_paths[0]=new char[NAME_MAX];
 			g_paths[1]=new char[NAME_MAX];
-			strcpy(g_paths[0],"graphics\\original\\");
-			strcpy(g_paths[1],"graphics\\alternate\\");
+			strcpy(g_paths[0],GRAPHICS_ORIGINAL);
+			strcpy(g_paths[1],GRAPHICS "\\alternate\\");
 		} /* if */ 
 
 		act_g_path=0;
@@ -148,7 +150,7 @@ void init_paths(void) {
 
 	  n_g_paths=0;
 	  
-	  if((dd=opendir("graphics"))==NULL) {
+	  if((dd=opendir(GRAPHICS))==NULL) {
 	    perror("ERROR: Could not open directory \"graphics\"");
 	    exit(1);
 	  }
@@ -168,7 +170,7 @@ void init_paths(void) {
 		n_g_paths=1;
 		g_paths=new char *[1];
 		g_paths[i]=new char[NAME_MAX];
-		sprintf(g_paths[i++],"graphics/%s/",direntry->d_name);
+		sprintf(g_paths[i++],GRAPHICS "/%s/",direntry->d_name);
 	      } else {
 		tmp_g_paths=g_paths;
 		n_g_paths++;
@@ -178,7 +180,7 @@ void init_paths(void) {
 		} /* for */ 
 		delete tmp_g_paths;
 		g_paths[i]=new char[NAME_MAX];
-		sprintf(g_paths[i++],"graphics/%s/",direntry->d_name);
+		sprintf(g_paths[i++],GRAPHICS "/%s/",direntry->d_name);
 	      } /* if */ 
 	    } /* if */ 
 	    
