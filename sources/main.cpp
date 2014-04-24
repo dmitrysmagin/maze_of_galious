@@ -126,7 +126,13 @@ int main(int argc, char** argv)
                     if (event.key.keysym.sym == SDLK_F12) {
                         quit = true;
                     } /* if */
-										
+
+#ifdef RENDER_320x240
+                    extern int STATE;
+                    if (event.key.keysym.sym == SDLK_ESCAPE && STATE == 2) {
+                        quit = true;
+                    }
+#endif
 
 /*
 FIXME: the code below is a big copy/paste; it should be in a separate function in stead
