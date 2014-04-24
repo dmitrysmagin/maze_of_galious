@@ -3671,7 +3671,11 @@ void tile_anims(Bitmap *tiles,int dx,int dy)
 {
 	int i,j,k,offs;
 	char *img,tmp;
+#ifdef RENDER_320x240
+	int disp[TILE_SIZE_Y]={1,1,2,2,2,2,3,3};
+#else
 	int disp[TILE_SIZE_Y]={1,1,2,2,2,2,3,3,3,3,4,4,4,4,4,4};
+#endif
 
 	/* Animación del agua: */ 
 	/* Tile agua: 19,3	*/ 

@@ -102,7 +102,6 @@ extern int HP_room_x[HP_OBJS_MAX],HP_room_y[HP_OBJS_MAX];
 extern int HP_obj[HP_OBJS_MAX];
 extern int HP_obj_type[HP_OBJS_MAX];
 
-extern int SCREEN_X,SCREEN_Y;
 
 
 /* Sonidos: */ 

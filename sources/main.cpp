@@ -17,18 +17,17 @@
 #include "tiles.h"
 
 #include "mog.h"
-
 #include "debug.h"
 
 extern void DebugReport(void);
 
-int SCREEN_X = 640;
-int SCREEN_Y = 400;
-int COLOUR_DEPTH = 8;
-
 #define TRANSPARANT_COLOR (0)
 
+#ifdef RENDER_320x240
+bool fullscreen = false;
+#else
 bool fullscreen = true;
+#endif
 
 // Redrawing constant
 int REDRAWING_PERIOD = 40;
@@ -39,7 +38,11 @@ int frames_per_sec_tmp = 0;
 int init_time = 0;
 
 // Paths
+#ifdef RENDER_320x240
+char *default_g_path = "graphics/original_320x240/";
+#else
 char *default_g_path = "graphics/original/";
+#endif
 char *default_s_path = "sound/original/";
 char **g_paths = 0;
 int n_g_paths = 0, act_g_path = 0;
@@ -201,7 +204,7 @@ FIXME: the code below is a big copy/paste; it should be in a separate function i
                         }
                     }
 #endif
-				
+#ifndef RENDER_320x240
 					// Change graphic set with either F10 or 9 (F10 is already used in OSX)
 					if (event.key.keysym.sym == SDLK_F10 || event.key.keysym.sym == SDLK_9) {
 
@@ -236,7 +239,7 @@ FIXME: the code below is a big copy/paste; it should be in a separate function i
 						Mix_VolumeMusic(music_volume);
 						SetSFXVolume(sfx_volume);
 					}
-
+#endif
 					if (event.key.keysym.sym == SDLK_d) {
 						write_debug_report("debug-report.txt");
 					} 

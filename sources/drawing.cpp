@@ -3,11 +3,10 @@
 #include "MOGtypes.h"
 #include "drawing.h"
 #include "line_clip.h"
+#include "bitmaps.h"
+#include "mog.h"
 
 #define MAX_POINTS	8
-
-extern int SCREEN_X;
-extern int SCREEN_Y;
 
 void PutPixel8B(BYTE *video,int x,int y,long pitch,BYTE color)
 {

@@ -1595,22 +1595,28 @@ void drawstats(BYTE *screen,int dx,int dy)
 		if (player_dexperience[i]>MAX_EXPERIENCE) player_dexperience[i]=0;
 	} /* for */ 
 
-	val=min(player_max[0],96);
-	B_rectangle(screen,112+val,20,2,8,dx,235);
-	val=max(0,min(player_denergy[0],96));
-	B_rectangle(screen,112,20,val,8,dx,47);
+#define EX(A) ((A) * TILE_UNIT)
+#define EY(A) ((A) * TILE_UNIT)
+#define EW TILE_UNIT
+#define EH (4 * TILE_UNIT)
+#define ED (2 / TILE_UNIT)
+
+	val=min(player_max[0],96) / ED;
+	B_rectangle(screen,EX(56)+val,EY(10),EW,EH,dx,235);
+	val=max(0,min(player_denergy[0],96)) / ED;
+	B_rectangle(screen,EX(56),EY(10),val,EH,dx,47);
 	if (player_dexperience[0]>0) {
-		val=min(player_dexperience[0],96);
-		B_rectangle(screen,112,36,val,8,dx,47);
+		val=min(player_dexperience[0],96) / ED;
+		B_rectangle(screen,EX(56),EY(18),val,EH,dx,47);
 	} /* if */ 
 
-	val=min(player_max[1],96);
-	B_rectangle(screen,288+val,20,2,8,dx,235);
-	val=max(min(player_denergy[1],96),0);
-	B_rectangle(screen,288,20,val,8,dx,194);
+	val=min(player_max[1],96) / ED;
+	B_rectangle(screen,EX(144)+val,EY(10),EW,EH,dx,235);
+	val=max(min(player_denergy[1],96),0) / ED;
+	B_rectangle(screen,EX(144),EY(10),val,EH,dx,194);
 	if (player_dexperience[1]>0) {
-		val=min(player_dexperience[1],96);
-		B_rectangle(screen,288,36,val,8,dx,194);
+		val=min(player_dexperience[1],96) / ED;
+		B_rectangle(screen,EX(144),EY(18),val,EH,dx,194);
 	} /* if */ 
 
 
@@ -2370,6 +2376,11 @@ bool loadroom(int map,int map_x,int map_y)
 
 
 		} /* if */ 
+
+#ifdef RENDER_320x240
+		object[i].x /= 2;
+		object[i].y /= 2;
+#endif
 	} /* for */ 
 
 	/* ESPECIALES: */ 
@@ -2583,6 +2594,10 @@ bool cargar_configuracion(char *filename)
 	ITEM_KEY = (SDLKey) itmp[2];
 	PAUSE_KEY = (SDLKey) itmp[3];
 
+#ifdef RENDER_320x240
+	fscanf(fp,"%s",g_path);
+	fscanf(fp,"%s",s_path);
+#else
 	/* Graphics path: */ 
 	fscanf(fp,"%s",tmp);
 
@@ -2606,7 +2621,7 @@ bool cargar_configuracion(char *filename)
 	} /* for */ 
 
 	if (act_s_path==-1) return false;
-
+#endif
 	/* Music and SFX volumes: */ 
 	fscanf(fp,"%i %i",&music_volume,&sfx_volume);
 
@@ -2621,18 +2636,25 @@ void configuracion_por_defecto(void)
 	DOWN_KEY=SDLK_DOWN;
 	LEFT_KEY=SDLK_LEFT;
 	RIGHT_KEY=SDLK_RIGHT;
+#ifdef RENDER_320x240
+	SWORD_KEY=SDLK_LCTRL;
+	WEAPON_KEY=SDLK_LALT;
+	ITEM_KEY=SDLK_SPACE;
+	PAUSE_KEY=SDLK_RETURN;
+#else
 	SWORD_KEY=SDLK_SPACE;
 	WEAPON_KEY=SDLK_m;
 	ITEM_KEY=SDLK_F1;
 	PAUSE_KEY=SDLK_F2;
+#endif
 
 	// default gfx set: naramura
 	act_g_path=0;
-	g_path=g_paths[4];
+	g_path=default_g_path;
 
 	// default sound set: jorito
 	act_s_path=0;
-	s_path=s_paths[2];
+	s_path=default_s_path;
 
 } /* condiguracion_por_defecto */ 
 

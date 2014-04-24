@@ -8,12 +8,25 @@
 
 #define MAX_AW_RECORD	32
 
+#ifdef RENDER_320x240
+#define SCREEN_X		320
+#define SCREEN_Y		200
+#define TILE_SIZE_X		8
+#define TILE_SIZE_Y		8
+#define GAME_VIEW_X		32
+#define GAME_VIEW_Y		32
+#define TILE_UNIT		1
+#else
+#define SCREEN_X		640
+#define SCREEN_Y		400
 #define TILE_SIZE_X		16
 #define TILE_SIZE_Y		16
 #define GAME_VIEW_X		64
 #define GAME_VIEW_Y		64
 #define TILE_UNIT		2
+#endif
 
+#define COLOUR_DEPTH		8
 
 #define T_WALL			1
 #define T_WATER			2

@@ -15,7 +15,6 @@
 #include "object.h"
 #include "filehandling.h"
 
-extern int SCREEN_X,SCREEN_Y,COLOUR_DEPTH;
 extern bool fullscreen;
 extern int REDRAWING_PERIOD;
 extern float frames_per_sec;

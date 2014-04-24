@@ -13,20 +13,18 @@
 #define MAX_VIEWS	4
 
 /* Vistas: */ 
-int logic_dx[MAX_VIEWS] = {640, 0, 0, 0};
-int logic_dy[MAX_VIEWS] = {400, 0, 0, 0};
+int logic_dx[MAX_VIEWS] = {SCREEN_X, 0, 0, 0};
+int logic_dy[MAX_VIEWS] = {SCREEN_Y, 0, 0, 0};
 int logic_x[MAX_VIEWS] = {0, 0, 0, 0};
 int logic_y[MAX_VIEWS] = {0, 0, 0, 0};
 
-int physic_dx[MAX_VIEWS] = {640, 0, 0, 0};
-int physic_dy[MAX_VIEWS] = {400, 0, 0, 0};
+int physic_dx[MAX_VIEWS] = {SCREEN_X, 0, 0, 0};
+int physic_dy[MAX_VIEWS] = {SCREEN_Y, 0, 0, 0};
 int physic_x[MAX_VIEWS] = {0, 0, 0, 0};
 int physic_y[MAX_VIEWS] = {0, 0, 0, 0};
 
 /* Variables globales: */ 
 
-extern int SCREEN_X;
-extern int SCREEN_Y;
 BYTE *buffer_screen = NULL;
 
 extern int pers_x, pers_y;

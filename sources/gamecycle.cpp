@@ -293,12 +293,16 @@ int sfx_volume=127;
 extern int logic_dx[4],logic_dy[4],logic_x[4],logic_y[4];
 extern int physic_dx[4],physic_dy[4],physic_x[4],physic_y[4];
 
-int zoom=640;
+int zoom=SCREEN_X;
 
-
-/* Teclas: */ 
+/* Teclas: */
+#ifdef RENDER_320x240
+SDLKey UP_KEY=SDLK_UP,DOWN_KEY=SDLK_DOWN,LEFT_KEY=SDLK_LEFT,RIGHT_KEY=SDLK_RIGHT;
+SDLKey SWORD_KEY=SDLK_LCTRL,WEAPON_KEY=SDLK_LALT,ITEM_KEY=SDLK_SPACE,PAUSE_KEY=SDLK_RETURN;
+#else
 SDLKey UP_KEY=SDLK_q,DOWN_KEY=SDLK_a,LEFT_KEY=SDLK_o,RIGHT_KEY=SDLK_p;
 SDLKey SWORD_KEY=SDLK_SPACE,WEAPON_KEY=SDLK_m,ITEM_KEY=SDLK_F1,PAUSE_KEY=SDLK_F2;
+#endif
 SDLKey last_word[16];
 
 char password[48]="UR3FUR3FUR4F423RUR3FUR3FUR3FUR3FUR3FUR3FURS48";
@@ -324,6 +328,10 @@ void GameCycle(BYTE *screen,int dx,int dy)
 {
 	char tmp[256];
 	unsigned char *keyboard;
+	int mw = menu_bmp->get_ancho();
+	int mh = menu_bmp->get_alto();
+	int kw = konami_bmp->get_ancho();
+	int kh = konami_bmp->get_alto();
 
 	SDL_PumpEvents();
 	keyboard = (unsigned char *)SDL_GetKeyState(NULL);
@@ -350,17 +358,13 @@ void GameCycle(BYTE *screen,int dx,int dy)
 					/* Borrar la pantalla: */ 
 					memset(screen,konami_bmp->get_image()[0],dx*dy);
 //					set_palete((BYTE *)konami_bmp->get_palete());
-
-					for(;SUBSTATE<25;SUBSTATE++) {
-						konami_bmp->draw_sprite(0,SUBSTATE,konami_bmp->get_ancho(),1,0,SUBSTATE*(dy/200),dx,1,screen,dx,dy,dx);
-					} /* for */ 
 				} /* if */ 
 
-				for(i=0;i<SUBSTATE*(dy/200);i++) {
-					konami_bmp->draw_sprite(0,i,konami_bmp->get_ancho(),1,0,i,dx,1,screen,dx,dy,dx);
+				for(i=0;i<SUBSTATE;i++) {
+					konami_bmp->draw_sprite(0,i,kw,1,0,i,kw,1,screen,dx,dy,dx);
 				} /* for */ 
 				SUBSTATE++;
-				if (SUBSTATE>=200) {
+				if (SUBSTATE>=kh) {
 					SUBSTATE=0;
 					STATE=1;
 				} /* if */ 
@@ -372,8 +376,8 @@ void GameCycle(BYTE *screen,int dx,int dy)
 			}
 			break;
 	case 1:	SUBSTATE++;
-			konami_bmp->draw(0,0,dx,dy,screen,dx,dy,dx);
-			if (SUBSTATE>100) {
+			konami_bmp->draw(0,0,kw,kh,screen,dx,dy,dx);
+			if (SUBSTATE>kh/2) {
 				SUBSTATE=0;
 				STATE=2;
 			} /* if */ 
@@ -389,9 +393,10 @@ void GameCycle(BYTE *screen,int dx,int dy)
 			SUBSTATE++;
 			memset(screen,0,dx*dy);
 //				set_palete((BYTE *)tiles_bmp->get_palete());
-			menu_bmp->draw(0,0,dx,dy,screen,dx,dy,dx);
+			menu_bmp->draw(0,0,mw,mh,screen,dx,dy,dx);
 			tile_print("PUSH SPACE KEY",TILE_SIZE_X*13,TILE_SIZE_Y*19,screen,dx,dy);
 
+#ifndef RENDER_320x240
 			sprintf(tmp,"F10 OR 9 CHANGES GRAPHIC SET: %s",g_path+9);
 			tmp[strlen(tmp)-1]=0;
 			strupr(tmp);
@@ -401,6 +406,7 @@ void GameCycle(BYTE *screen,int dx,int dy)
 			tmp[strlen(tmp)-1]=0;
 			tile_print(tmp,TILE_SIZE_X*2,TILE_SIZE_Y*22,screen,dx,dy);
 			tile_print("PRESS K TO REDEFINE THE KEYS",TILE_SIZE_X*6,TILE_SIZE_Y*23,screen,dx,dy);
+#endif
 
 			if (keyboard[SDLK_SPACE]  && !old_keyboard[SDLK_SPACE]) {
 				developer_start_x=-1;
@@ -440,12 +446,12 @@ void GameCycle(BYTE *screen,int dx,int dy)
 			if (SUBSTATE==0) Sound_play(S_gamestart);
 			if ((SUBSTATE%4)==0) {
 				memset(screen,0,dx*dy);
-				menu_bmp->draw(0,0,dx,dy,screen,dx,dy,dx);
+				menu_bmp->draw(0,0,mw,mh,screen,dx,dy,dx);
 				tile_print("  PLAY START  ",TILE_SIZE_X*13,TILE_SIZE_Y*19,screen,dx,dy);
 			} /* if */ 
 			if ((SUBSTATE%4)==2) {
 				memset(screen,0,dx*dy);
-				menu_bmp->draw(0,0,dx,dy,screen,dx,dy,dx);
+				menu_bmp->draw(0,0,mw,mh,screen,dx,dy,dx);
 			} /* if */ 
 			if (SUBSTATE>=30) {
 
@@ -745,8 +751,8 @@ void GameCycle(BYTE *screen,int dx,int dy)
 
 
 			/* Gestiona vistas: */ 
-			if (keyboard[SDLK_PAGEUP] && zoom<640) zoom+=8;
-			if (keyboard[SDLK_PAGEDOWN] && zoom>320) zoom-=8;
+			if (keyboard[SDLK_PAGEUP] && zoom<SCREEN_X) zoom+=8;
+			if (keyboard[SDLK_PAGEDOWN] && zoom>SCREEN_X/2) zoom-=8;
 
 			break;
 	case 5:	/* PANTALLA DE ITEMS: */ 
@@ -2327,26 +2333,26 @@ void GameCycle(BYTE *screen,int dx,int dy)
 		int zx,zy;
 
 		zx=zoom;
-		zy=int((float(zoom)*(400.0-float(GAME_VIEW_Y)))/640.0);
+		zy=int((float(zoom)*((float)SCREEN_Y-float(GAME_VIEW_Y)))/(float)SCREEN_X);
 
-		logic_dx[0]=physic_dx[0]=640;
+		logic_dx[0]=physic_dx[0]=SCREEN_X;
 		logic_dy[0]=physic_dy[0]=GAME_VIEW_Y;
 		logic_x[0]=physic_x[0]=0;
 		logic_y[0]=physic_y[0]=0;
 
 		logic_dx[1]=zx;
 		logic_dy[1]=zy;
-		logic_x[1]=max(min(640-zx,GAME_VIEW_X+pers_x-(zx/2-TILE_SIZE_X)),0);
-		logic_y[1]=max(min(400-zy,GAME_VIEW_Y+pers_y-zy/2),GAME_VIEW_Y);
+		logic_x[1]=max(min(SCREEN_X-zx,GAME_VIEW_X+pers_x-(zx/2-TILE_SIZE_X)),0);
+		logic_y[1]=max(min(SCREEN_Y-zy,GAME_VIEW_Y+pers_y-zy/2),GAME_VIEW_Y);
 
 		physic_x[1]=0;
 		physic_y[1]=GAME_VIEW_Y;
-		physic_dx[1]=640;
-		physic_dy[1]=400-GAME_VIEW_Y;
+		physic_dx[1]=SCREEN_X;
+		physic_dy[1]=SCREEN_Y-GAME_VIEW_Y;
 	
 	} else {
-		logic_dx[0]=physic_dx[0]=640;
-		logic_dy[0]=physic_dy[0]=400;
+		logic_dx[0]=physic_dx[0]=SCREEN_X;
+		logic_dy[0]=physic_dy[0]=SCREEN_Y;
 		logic_x[0]=physic_x[0]=0;
 		logic_y[0]=physic_y[0]=0;
 
