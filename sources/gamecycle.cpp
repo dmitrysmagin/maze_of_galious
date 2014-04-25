@@ -369,7 +369,7 @@ void GameCycle(BYTE *screen,int dx,int dy)
 					STATE=1;
 				} /* if */ 
 
-				if (keyboard[SDLK_SPACE]) {
+				if (keyboard[SDLK_SPACE] || keyboard[SDLK_RETURN]) {
 					STATE=2;
 					SUBSTATE=0;
 				} /* if */ 
@@ -426,7 +426,12 @@ void GameCycle(BYTE *screen,int dx,int dy)
 				STATE=10;
 				SUBSTATE=0;
 			} /* if */ 
+
+#ifdef RENDER_320x240
+			if (keyboard[SDLK_LCTRL] && !old_keyboard[SDLK_LCTRL]) {
+#else
 			if (keyboard[SDLK_l] && !old_keyboard[SDLK_l]) {
+#endif
 				int i;
 
 				for(i=0;i<45;i++) password[i]=' ';
@@ -435,7 +440,11 @@ void GameCycle(BYTE *screen,int dx,int dy)
 				SUBSTATE=0;
 			} /* if */ 
 
+#ifdef RENDER_320x240
+			if (keyboard[SDLK_LALT] && keyboard[SDLK_SPACE]) {
+#else
 			if (keyboard[SDLK_g] && !old_keyboard[SDLK_g]) {
+#endif
 				developer_start_x=5;
 				developer_start_y=12;
 				developer_start_map=0;
@@ -1956,20 +1965,34 @@ void GameCycle(BYTE *screen,int dx,int dy)
 				if (keyboard[RIGHT_KEY] && !old_keyboard[RIGHT_KEY]) {
 					if (developer_start_x<14) developer_start_x++;
 				} /* if */ 
+#ifdef RENDER_320x240
+				if (keyboard[WEAPON_KEY] && !old_keyboard[WEAPON_KEY]) {
+					if (developer_start_map>0) developer_start_map--;
+				} /* if */ 
+				if (keyboard[SWORD_KEY] && !old_keyboard[SWORD_KEY]) {
+					if (developer_start_map<10) developer_start_map++;
+				} /* if */ 
+#else
 				if (keyboard[SDLK_PAGEDOWN] && !old_keyboard[SDLK_PAGEDOWN]) {
 					if (developer_start_map>0) developer_start_map--;
 				} /* if */ 
 				if (keyboard[SDLK_PAGEUP] && !old_keyboard[SDLK_PAGEUP]) {
 					if (developer_start_map<10) developer_start_map++;
 				} /* if */ 
+#endif
 
 				sprintf(filename,"rooms/%s%.2i%.2i.txt",prefixes[developer_start_map],
 														developer_start_x,
 														developer_start_y);
 				fp=f1open(filename,"r",GAMEDATA);
 				if (fp!=0) {
+#ifndef RENDER_320x240
 					tile_print("PRESS SPACE TO START",TILE_SIZE_X*9,TILE_SIZE_Y*8,screen,dx,dy);
 					if (keyboard[SDLK_SPACE] && !old_keyboard[SDLK_SPACE]) {
+#else
+					tile_print("PRESS START TO GO",TILE_SIZE_X*10,TILE_SIZE_Y*8,screen,dx,dy);
+					if (keyboard[SDLK_RETURN] && !old_keyboard[SDLK_RETURN]) {
+#endif
 						strcpy(password,"UR3QUR5FUG4F123NUL7WHUD4VT7WHUD4VYTFUR3FURS76");
 						STATE=3;
 						SUBSTATE=30;
