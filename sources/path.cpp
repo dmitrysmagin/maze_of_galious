@@ -44,7 +44,7 @@ void init_paths(void)
 				n_g_paths=1;
 				g_paths=new char *[1];
 				g_paths[i]=new char[NAME_MAX];
-				sprintf(g_paths[i++],GRAPHICS "\\%s\\",strupr(finfo.cFileName));
+				sprintf(g_paths[i++],GRAPHICS "\\%s\\",finfo.cFileName);
 			} /* if */ 
 
 			while(FindNextFile(h,&finfo)==TRUE) {
@@ -56,7 +56,7 @@ void init_paths(void)
 						n_g_paths=1;
 						g_paths=new char *[1];
 						g_paths[i]=new char[NAME_MAX];
-						sprintf(g_paths[i++],GRAPHICS "\\%s\\",strupr(finfo.cFileName));
+						sprintf(g_paths[i++],GRAPHICS "\\%s\\",finfo.cFileName);
 					} else {
 						tmp_g_paths=g_paths;
 						n_g_paths++;
@@ -66,7 +66,7 @@ void init_paths(void)
 						} /* for */ 
 						delete tmp_g_paths;
 						g_paths[i]=new char[NAME_MAX];
-						sprintf(g_paths[i++],GRAPHICS "\\%s\\",strupr(finfo.cFileName));
+						sprintf(g_paths[i++],GRAPHICS "\\%s\\",finfo.cFileName);
 					} /* if */ 
 				} /* if */ 
 			} /* while */ 
@@ -100,7 +100,7 @@ void init_paths(void)
 				n_s_paths=1;
 				s_paths=new char *[1];
 				s_paths[i]=new char[NAME_MAX];
-				sprintf(s_paths[i++],"sound\\%s\\",strupr(finfo.cFileName));
+				sprintf(s_paths[i++],"sound\\%s\\",finfo.cFileName);
 			} /* if */ 
 
 			while(FindNextFile(h,&finfo)==TRUE) {
@@ -112,7 +112,7 @@ void init_paths(void)
 						n_s_paths=1;
 						s_paths=new char *[1];
 						s_paths[i]=new char[NAME_MAX];
-						sprintf(s_paths[i++],"sound\\%s\\",strupr(finfo.cFileName));
+						sprintf(s_paths[i++],"sound\\%s\\",finfo.cFileName);
 					} else {
 						tmp_s_paths=s_paths;
 						n_s_paths++;
@@ -122,7 +122,7 @@ void init_paths(void)
 						} /* for */ 
 						delete tmp_s_paths;
 						s_paths[i]=new char[NAME_MAX];
-						sprintf(s_paths[i++],"sound\\%s\\",strupr(finfo.cFileName));
+						sprintf(s_paths[i++],"sound\\%s\\",finfo.cFileName);
 					} /* if */ 
 				} /* if */ 
 			} /* while */ 

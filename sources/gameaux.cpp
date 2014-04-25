@@ -2594,10 +2594,6 @@ bool cargar_configuracion(char *filename)
 	ITEM_KEY = (SDLKey) itmp[2];
 	PAUSE_KEY = (SDLKey) itmp[3];
 
-#ifdef RENDER_320x240
-	fscanf(fp,"%s",g_path);
-	fscanf(fp,"%s",s_path);
-#else
 	/* Graphics path: */ 
 	fscanf(fp,"%s",tmp);
 
@@ -2621,7 +2617,7 @@ bool cargar_configuracion(char *filename)
 	} /* for */ 
 
 	if (act_s_path==-1) return false;
-#endif
+
 	/* Music and SFX volumes: */ 
 	fscanf(fp,"%i %i",&music_volume,&sfx_volume);
 
