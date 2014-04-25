@@ -1682,11 +1682,16 @@ void GameCycle(BYTE *screen,int dx,int dy)
 
 				/* Entrando código!!!!: */ 
 				memset(screen,0,dx*dy);
+#ifndef RENDER_320x240
 				tile_print("h F5 TO F9",TILE_SIZE_X*9,TILE_SIZE_Y*2,screen,dx,dy);
-
+#endif
 				tile_print("ENTER THE SECRET",TILE_SIZE_X*9,TILE_SIZE_Y*4,screen,dx,dy);
 				tile_print("CODE AND PRESS",TILE_SIZE_X*9,TILE_SIZE_Y*5,screen,dx,dy);
+#ifndef RENDER_320x240
 				tile_print("RETURN KEY.",TILE_SIZE_X*9,TILE_SIZE_Y*6,screen,dx,dy);
+#else
+				tile_print("START KEY.",TILE_SIZE_X*9,TILE_SIZE_Y*6,screen,dx,dy);
+#endif
 
 				buf[0]=password[0]; buf[1]=password[1]; buf[2]=password[2]; buf[3]=password[3];
 				buf[5]=password[4]; buf[6]=password[5]; buf[7]=password[6]; buf[8]=password[7];
@@ -1751,6 +1756,16 @@ void GameCycle(BYTE *screen,int dx,int dy)
 					} /* if */ 
 					if (!old_keyboard[SDLK_LEFT] && keyboard[SDLK_LEFT] && password_pos>0) password_pos--;
 					if (!old_keyboard[SDLK_RIGHT] && keyboard[SDLK_RIGHT] && password_pos<44) password_pos++;
+					if (!old_keyboard[SDLK_UP] && keyboard[SDLK_UP]) {
+						if (password[password_pos] == 0x20) password[password_pos] = '0';
+						else if (password[password_pos] == '9') password[password_pos] = 'A';
+						else if (password[password_pos] < 0x5a) password[password_pos]++;
+					}
+					if (!old_keyboard[SDLK_DOWN] && keyboard[SDLK_DOWN]) {
+						if (password[password_pos] == 'A') password[password_pos] = '9';
+						else if (password[password_pos] == '0') password[password_pos] = ' ';
+						else if (password[password_pos] > 0x20) password[password_pos]--;
+					}
 					if (!old_keyboard[SDLK_0] && keyboard[SDLK_0]) {
 						password[password_pos]='0';
 						password_pos++;
