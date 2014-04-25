@@ -397,6 +397,7 @@ void GameCycle(BYTE *screen,int dx,int dy)
 
 #ifdef RENDER_320x240
 			tile_print("PUSH START KEY",TILE_SIZE_X*13,TILE_SIZE_Y*19,screen,dx,dy);
+			tile_print("PRESS \'A\' TO ENTER PASSWORD",TILE_SIZE_X*6,TILE_SIZE_Y*21,screen,dx,dy);
 #else
 			tile_print("PUSH SPACE KEY",TILE_SIZE_X*13,TILE_SIZE_Y*19,screen,dx,dy);
 			sprintf(tmp,"F10 OR 9 CHANGES GRAPHIC SET: %s",g_path+9);
