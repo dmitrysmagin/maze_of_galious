@@ -211,7 +211,9 @@ FIXME: the code below is a big copy/paste; it should be in a separate function i
 #ifndef RENDER_320x240
 					// Change graphic set with either F10 or 9 (F10 is already used in OSX)
 					if (event.key.keysym.sym == SDLK_F10 || event.key.keysym.sym == SDLK_9) {
-
+#else
+					if (event.key.keysym.sym == SDLK_TAB) {
+#endif
 						act_g_path++;
 						if (act_g_path >= n_g_paths) {
 							act_g_path = 0;
@@ -227,9 +229,12 @@ FIXME: the code below is a big copy/paste; it should be in a separate function i
 						}
 					} 
 
+#ifndef RENDER_320x240
 					// Change sound set with either F11 or 0 (F10 is already used in OSX)
 					if (event.key.keysym.sym == SDLK_F11 || event.key.keysym.sym == SDLK_0) {
-
+#else
+					if (event.key.keysym.sym == SDLK_BACKSPACE) {
+#endif
 						act_s_path++;
 						if (act_s_path >= n_s_paths) {
 							act_s_path = 0;
@@ -243,7 +248,7 @@ FIXME: the code below is a big copy/paste; it should be in a separate function i
 						Mix_VolumeMusic(music_volume);
 						SetSFXVolume(sfx_volume);
 					}
-#endif
+
 					if (event.key.keysym.sym == SDLK_d) {
 						write_debug_report("debug-report.txt");
 					} 
