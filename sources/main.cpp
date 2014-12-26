@@ -296,12 +296,10 @@ FIXME: the code below is a big copy/paste; it should be in a separate function i
 }
 
 
-SDL_Surface* initializeSDL(int moreflags)
+SDL_Surface* initializeSDL(int flags)
 {
 	char VideoName[256];
 	SDL_Surface *screen;
-
-	int flags = SDL_HWPALETTE|moreflags;
 
 	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) < 0) {
 		return 0;
