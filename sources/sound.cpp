@@ -43,6 +43,16 @@ bool Sound_initialization(void)
 
 	sound_enabled=true;
 	fprintf (stderr, "Initializing SDL_mixer.\n");
+
+	int flags = MIX_INIT_OGG | MIX_INIT_MOD;
+	int initted = Mix_Init(flags);
+	if (initted & flags != flags) {
+		printf("Mix_Init: Failed to init required ogg and mod support!\n");
+		printf("Mix_Init: %s\n", Mix_GetError());
+		sound_enabled = false;
+		return false;
+	}
+
 	if (Mix_OpenAudio(audio_rate, audio_format, audio_channels, audio_bufsize))  {
 	  fprintf (stderr, "Unable to open audio: %s\n", Mix_GetError());
 	  sound_enabled=false;
@@ -76,6 +86,7 @@ void Sound_release(void)
 	if (sound_enabled) {
 		Sound_Quit();
 		Mix_CloseAudio();
+		Mix_Quit();
 	} /* if */ 
 	sound_enabled=false;
 } /* Sound_release */ 
